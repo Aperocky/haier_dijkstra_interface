@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="AnchorBG" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="riskawarenesssimulation.Controller.WelcomeController">
+   <children>
+      <VBox layoutX="120.0" layoutY="100.0" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+               <children>
+                  <Text fill="#fafafa" strokeType="OUTSIDE" strokeWidth="0.0" text="User ID:">
+                     <font>
+                        <Font name="Lucida Sans Regular" size="28.0" />
+                     </font>
+                  </Text>
+                  <JFXTextField fx:id="UIDText" focusColor="#1ca14a" maxWidth="277.0" minWidth="247.0" prefHeight="56.0" prefWidth="247.0">
+                     <font>
+                        <Font name="Lucida Sans Regular" size="24.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+               </children>
+            </HBox>
+            <HBox layoutX="-1100.0" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+               <children>
+                  <Text fill="#fafafa" strokeType="OUTSIDE" strokeWidth="0.0" text="Condition ID:">
+                     <font>
+                        <Font name="Lucida Sans Regular" size="28.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="-23.0" />
+                     </HBox.margin>
+                  </Text>
+                  <JFXTextField fx:id="GIDText" focusColor="#1ca14a" maxWidth="277.0" minWidth="247.0" prefHeight="56.0" prefWidth="250.0">
+                     <font>
+                        <Font name="Lucida Sans Regular" size="24.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Text fill="#fafafa" strokeType="OUTSIDE" strokeWidth="0.0" text="Map ID:">
+                     <font>
+                        <Font name="Lucida Sans Regular" size="28.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Text>
+                  <JFXComboBox fx:id="MapPicker" opacity="0.8" prefHeight="31.0" prefWidth="215.0" style="-fx-background-color: #1ca14a;" visibleRowCount="5">
+                     <HBox.margin>
+                        <Insets left="65.0" top="10.0" />
+                     </HBox.margin>
+                  </JFXComboBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <JFXButton fx:id="BeginBtn" buttonType="RAISED" layoutX="100.0" layoutY="316.0" style="-fx-background-color: #ff5400;" text="Start" textFill="#fafafa">
+         <font>
+            <Font name="Lucida Sans Regular" size="24.0" />
+         </font>
+      </JFXButton>
+      <Text fill="#fafafa" layoutX="226.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!">
+         <font>
+            <Font name="Lucida Sans Regular" size="36.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

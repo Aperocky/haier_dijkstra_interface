@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="riskawarenesssimulation.Controller.MapController">
+    
+    <AnchorPane fx:id="AnchorBG" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="900.0">
+        <children>
+            <Label fx:id="warningLabel" layoutX="580.0" layoutY="490.0" prefWidth="270.0" text="Warning" textFill="#e86d6d">
+                <font>
+                    <Font name="Lucida Sans Typewriter Regular" size="14.0" />
+                </font>
+            </Label>
+            <JFXButton fx:id="ExecuteBtn" buttonType="RAISED" layoutX="780.0" layoutY="550.0" ripplerFill="#999999" style="-fx-background-color: #ff5400;" text="Execute" textFill="#fafafa">
+                <font>
+                    <Font size="16.0" />
+                </font>
+                <opaqueInsets>
+                    <Insets />
+                </opaqueInsets>
+            </JFXButton>
+            <Group fx:id="nonControlGroup" layoutX="600.0" layoutY="310.0">
+                <children>
+                    <VBox layoutY="25.0" prefHeight="200.0" prefWidth="100.0" spacing="30.0">
+                        <children>
+                            <Text fill="#fafafa" strokeType="OUTSIDE" strokeWidth="0.0" text="High Risk">
+                                <font>
+                                    <Font size="18.0" />
+                                </font>
+                            </Text>
+                            <Text fill="#fafafa" strokeType="OUTSIDE" strokeWidth="0.0" text="Med. Risk">
+                                <font>
+                                    <Font size="18.0" />
+                                </font>
+                            </Text>
+                            <Text fill="#fafafa" strokeType="OUTSIDE" strokeWidth="0.0" text="Low Risk">
+                                <font>
+                                    <Font size="18.0" />
+                                </font>
+                            </Text>
+                        </children>
+                    </VBox>
+                    <VBox layoutX="130.0" layoutY="30.0" prefHeight="200.0" prefWidth="100.0" spacing="32.0">
+                        <children>
+                            <JFXRadioButton fx:id="nonControlBtn1" onAction="#onNonControClick1" textFill="#fafafa">
+                                <toggleGroup>
+                                    <ToggleGroup fx:id="riskonly" />
+                                </toggleGroup>
+                            </JFXRadioButton>
+                            <JFXRadioButton fx:id="nonControlBtn2" onAction="#onNonControClick2" textFill="#fafafa" toggleGroup="$riskonly" />
+                            <JFXRadioButton fx:id="nonControlBtn3" onAction="#onNonControClick3" textFill="#fafafa" toggleGroup="$riskonly" />
+                        </children>
+                    </VBox>
+                    <Text fill="#fafafa" strokeType="OUTSIDE" strokeWidth="4.0" text="Control Panel">
+                        <font>
+                            <Font name="Lucida Sans Regular" size="20.0" />
+                        </font>
+                    </Text>
+                </children>
+            </Group>
+            <Group fx:id="ControlGroup" layoutX="680.0" layoutY="320.0">
+                <children>
+                    <Text fill="#fafafa" layoutX="-20.0" layoutY="-30.0" strokeType="OUTSIDE" strokeWidth="4.0" text="Control Panel">
+                        <font>
+                            <Font name="Lucida Sans Regular" size="20.0" />
+                        </font>
+                    </Text>
+                    <VBox layoutX="-80.0" layoutY="20.0" prefHeight="200.0" prefWidth="100.0" spacing="32.0">
+                        <children>
+                            <Text fill="#fafafa" strokeType="OUTSIDE" strokeWidth="0.0" text="High Risk">
+                                <font>
+                                    <Font size="14.0" />
+                                </font>
+                            </Text>
+                            <Text fill="#fafafa" strokeType="OUTSIDE" strokeWidth="0.0" text="Med. Risk">
+                                <font>
+                                    <Font size="14.0" />
+                                </font>
+                            </Text>
+                            <Text fill="#fafafa" strokeType="OUTSIDE" strokeWidth="0.0" text="Low Risk">
+                                <font>
+                                    <Font size="14.0" />
+                                </font>
+                            </Text>
+                        </children>
+                    </VBox>
+                    <HBox layoutX="5.0" layoutY="150.0" prefHeight="30.0" prefWidth="100.0" spacing="20.0">
+                        <children>
+                            <Text fill="#fafafa" strokeType="OUTSIDE" strokeWidth="0.0" text="Small">
+                                <font>
+                                    <Font name="Lucida Sans Regular" size="14.0" />
+                                </font>
+                            </Text>
+                            <Text fill="#fafafa" strokeType="OUTSIDE" strokeWidth="0.0" text="Med.">
+                                <font>
+                                    <Font name="Lucida Sans Regular" size="14.0" />
+                                </font>
+                            </Text>
+                            <Text fill="#fafafa" strokeType="OUTSIDE" strokeWidth="0.0" text="Large">
+                                <font>
+                                    <Font name="Lucida Sans Regular" size="14.0" />
+                                </font>
+                            </Text>
+                        </children>
+                    </HBox>
+                    <GridPane alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="150.0" prefWidth="171.0">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints maxHeight="59.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="98.0" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="76.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+                        </rowConstraints>
+                        <children>
+                            <JFXRadioButton fx:id="btn1" onAction="#onClick1" textFill="#fafafa">
+                                <toggleGroup>
+                                    <ToggleGroup fx:id="risktime" />
+                                </toggleGroup>
+                                <font>
+                                    <Font size="18.0" />
+                                </font>
+                            </JFXRadioButton>
+                            <JFXRadioButton fx:id="btn2" onAction="#onClick2" textFill="#fafafa" toggleGroup="$risktime" GridPane.columnIndex="1">
+                                <font>
+                                    <Font size="18.0" />
+                                </font>
+                            </JFXRadioButton>
+                            <JFXRadioButton fx:id="btn3" onAction="#onClick3" textFill="#fafafa" toggleGroup="$risktime" GridPane.columnIndex="2">
+                                <font>
+                                    <Font size="18.0" />
+                                </font>
+                            </JFXRadioButton>
+                            <JFXRadioButton fx:id="btn4" onAction="#onClick4" textFill="#fafafa" toggleGroup="$risktime" GridPane.rowIndex="1">
+                                <font>
+                                    <Font size="18.0" />
+                                </font>
+                            </JFXRadioButton>
+                            <JFXRadioButton fx:id="btn5" onAction="#onClick5" textFill="#fafafa" toggleGroup="$risktime" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <font>
+                                    <Font size="18.0" />
+                                </font>
+                            </JFXRadioButton>
+                            <JFXRadioButton fx:id="btn6" onAction="#onClick6" textFill="#fafafa" toggleGroup="$risktime" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                <font>
+                                    <Font size="18.0" />
+                                </font>
+                            </JFXRadioButton>
+                            <JFXRadioButton fx:id="btn7" onAction="#onClick7" textFill="#fafafa" toggleGroup="$risktime" GridPane.rowIndex="2">
+                                <font>
+                                    <Font size="18.0" />
+                                </font>
+                            </JFXRadioButton>
+                            <JFXRadioButton fx:id="btn8" onAction="#onClick8" textFill="#fafafa" toggleGroup="$risktime" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                <font>
+                                    <Font size="18.0" />
+                                </font>
+                            </JFXRadioButton>
+                            <JFXRadioButton fx:id="btn9" onAction="#onClick9" textFill="#fafafa" toggleGroup="$risktime" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                <font>
+                                    <Font size="18.0" />
+                                </font>
+                            </JFXRadioButton>
+                        </children>
+                    </GridPane>
+                </children>
+            </Group>
+            <Group fx:id="RiskEvalGroup" layoutX="600.0" layoutY="52.0">
+                <children>
+                    <Text fill="#fafafa" strokeType="OUTSIDE" strokeWidth="0.0" text="How risky do you evaluate your current situation is?" wrappingWidth="300.0">
+                        <font>
+                            <Font name="Lucida Sans Regular" size="18.0" />
+                        </font>
+                    </Text>
+                    <VBox layoutY="60.0" prefHeight="108.0" prefWidth="290.0" spacing="20.0">
+                        <children>
+                            <JFXRadioButton fx:id="riskevalBtn1" onAction="#onEval1" text="Not Risky" textFill="#fafafa">
+                                <toggleGroup>
+                                    <ToggleGroup fx:id="riskeval" />
+                                </toggleGroup>
+                                <font>
+                                    <Font name="Lucida Sans Regular" size="14.0" />
+                                </font>
+                            </JFXRadioButton>
+                            <JFXRadioButton fx:id="riskevalBtn2" onAction="#onEval2" text="Kind Of Risky" textFill="#fafafa" toggleGroup="$riskeval">
+                                <font>
+                                    <Font name="Lucida Sans Regular" size="14.0" />
+                                </font>
+                            </JFXRadioButton>
+                            <JFXRadioButton fx:id="riskevalBtn3" onAction="#onEval3" text="Really Risky" textFill="#fafafa" toggleGroup="$riskeval">
+                                <font>
+                                    <Font name="Lucida Sans Regular" size="14.0" />
+                                </font>
+                            </JFXRadioButton>
+                        </children>
+                    </VBox>
+                    <JFXButton fx:id="SaveAssessBtn" buttonType="RAISED" layoutX="180.0" layoutY="190.0" ripplerFill="#999999" style="-fx-background-color: #ff5400;" text="Submit" textFill="#fafafa">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                    </JFXButton>
+                </children>
+            </Group>
+            <Group fx:id="ObserveGroup" layoutX="10.0" layoutY="20.0">
+                <children>
+                    <HBox layoutY="10.0" maxHeight="60.0" maxWidth="760.0" minWidth="600.0" prefHeight="30.0" prefWidth="500.0" spacing="20.0">
+                        <children>
+                            <Text fill="#fafafa" strokeType="OUTSIDE" strokeWidth="4.0" text="Risk Budget">
+                                <font>
+                                    <Font name="Lucida Sans Regular" size="18.0" />
+                                </font>
+                            </Text>
+                            <VBox prefHeight="200.0" prefWidth="100.0">
+                                <children>
+                                    <HBox maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="300.0" spacing="13.0">
+                                        <children>
+                                            <VBox prefHeight="200.0" prefWidth="15.0">
+                                                <children>
+                                                    <Text fill="#fafafa" strokeType="OUTSIDE" strokeWidth="0.0" text="10%">
+                                                        <VBox.margin>
+                                                            <Insets left="-3.0" />
+                                                        </VBox.margin>
+                                                        <font>
+                                                            <Font name="Lucida Sans Regular" size="15.0" />
+                                                        </font>
+                                                    </Text>
+                                                    <Line endY="10.0" stroke="#fafafa" strokeLineCap="ROUND" strokeWidth="3.0" />
+                                                </children>
+                                            </VBox>
+                                            <VBox prefHeight="200.0" prefWidth="15.0">
+                                                <children>
+                                                    <Text fill="#fafafa" strokeType="OUTSIDE" strokeWidth="0.0" text="9%">
+                                                        <VBox.margin>
+                                                            <Insets left="-3.0" />
+                                                        </VBox.margin>
+                                                        <font>
+                                                            <Font name="Lucida Sans Regular" size="15.0" />
+                                                        </font>
+                                                    </Text>
+                                                    <Line endY="10.0" stroke="#fafafa" strokeLineCap="ROUND" strokeWidth="3.0">
+                                                        <VBox.margin>
+                                                            <Insets />
+                                                        </VBox.margin>
+                                                    </Line>
+                                                </children>
+                                            </VBox>
+                                            <VBox prefHeight="200.0" prefWidth="15.0">
+                                                <children>
+                                                    <Text fill="#fafafa" strokeType="OUTSIDE" strokeWidth="0.0" text="8%">
+                                                        <VBox.margin>
+                                                            <Insets left="-3.0" />
+                                                        </VBox.margin>
+                                                        <font>
+                                                            <Font name="Lucida Sans Regular" size="15.0" />
+                                                        </font>
+                                                    </Text>
+                                                    <Line endY="10.0" stroke="#fafafa" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                                                </children>
+                                            </VBox>
+                                            <VBox prefHeight="200.0" prefWidth="15.0">
+                                                <children>
+                                                    <Text fill="#fafafa" strokeType="OUTSIDE" strokeWidth="0.0" text="7%">
+                                                        <VBox.margin>
+                                                            <Insets left="-3.0" />
+                                                        </VBox.margin>
+                                                        <font>
+                                                            <Font name="Lucida Sans Regular" size="15.0" />
+                                                        </font>
+                                                    </Text>
+                                                    <Line endY="10.0" stroke="#fafafa" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                                                </children>
+                                            </VBox>
+                                            <VBox prefHeight="200.0" prefWidth="15.0">
+                                                <children>
+                                                    <Text fill="#fafafa" strokeType="OUTSIDE" strokeWidth="0.0" text="6%">
+                                                        <VBox.margin>
+                                                            <Insets left="-3.0" />
+                                                        </VBox.margin>
+                                                        <font>
+                                                            <Font name="Lucida Sans Regular" size="15.0" />
+                                                        </font>
+                                                    </Text>
+                                                    <Line endY="10.0" stroke="#fafafa" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                                                </children>
+                                            </VBox>
+                                            <VBox prefHeight="200.0" prefWidth="15.0">
+                                                <children>
+                                                    <Text fill="#fafafa" strokeType="OUTSIDE" strokeWidth="0.0" text="5%">
+                                                        <VBox.margin>
+                                                            <Insets left="-3.0" />
+                                                        </VBox.margin>
+                                                        <font>
+                                                            <Font name="Lucida Sans Regular" size="15.0" />
+                                                        </font>
+                                                    </Text>
+                                                    <Line endY="10.0" stroke="#fafafa" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                                                </children>
+                                            </VBox>
+                                            <VBox prefHeight="200.0" prefWidth="15.0">
+                                                <children>
+                                                    <Text fill="#fafafa" strokeType="OUTSIDE" strokeWidth="0.0" text="4%">
+                                                        <VBox.margin>
+                                                            <Insets left="-3.0" />
+                                                        </VBox.margin>
+                                                        <font>
+                                                            <Font name="Lucida Sans Regular" size="15.0" />
+                                                        </font>
+                                                    </Text>
+                                                    <Line endY="10.0" stroke="#fafafa" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                                                </children>
+                                            </VBox>
+                                            <VBox prefHeight="200.0" prefWidth="15.0">
+                                                <children>
+                                                    <Text fill="#fafafa" strokeType="OUTSIDE" strokeWidth="0.0" text="3%">
+                                                        <VBox.margin>
+                                                            <Insets left="-3.0" />
+                                                        </VBox.margin>
+                                                        <font>
+                                                            <Font name="Lucida Sans Regular" size="15.0" />
+                                                        </font>
+                                                    </Text>
+                                                    <Line endY="10.0" stroke="#fafafa" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                                                </children>
+                                            </VBox>
+                                            <VBox prefHeight="200.0" prefWidth="15.0">
+                                                <children>
+                                                    <Text fill="#fafafa" strokeType="OUTSIDE" strokeWidth="0.0" text="2%">
+                                                        <VBox.margin>
+                                                            <Insets left="-3.0" />
+                                                        </VBox.margin>
+                                                        <font>
+                                                            <Font name="Lucida Sans Regular" size="15.0" />
+                                                        </font>
+                                                    </Text>
+                                                    <Line endY="10.0" stroke="#fafafa" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                                                </children>
+                                            </VBox>
+                                            <VBox prefHeight="200.0" prefWidth="15.0">
+                                                <children>
+                                                    <Text fill="#fafafa" strokeType="OUTSIDE" strokeWidth="0.0" text="1%">
+                                                        <VBox.margin>
+                                                            <Insets left="-3.0" />
+                                                        </VBox.margin>
+                                                        <font>
+                                                            <Font name="Lucida Sans Regular" size="15.0" />
+                                                        </font>
+                                                    </Text>
+                                                    <Line endY="10.0" stroke="#fafafa" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                                                </children>
+                                            </VBox>
+                                            <VBox prefHeight="200.0" prefWidth="15.0">
+                                                <children>
+                                                    <Text fill="#fafafa" strokeType="OUTSIDE" strokeWidth="0.0" text="0%">
+                                                        <VBox.margin>
+                                                            <Insets left="-3.0" />
+                                                        </VBox.margin>
+                                                        <font>
+                                                            <Font name="Lucida Sans Regular" size="15.0" />
+                                                        </font>
+                                                    </Text>
+                                                    <Line endY="10.0" stroke="#fafafa" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                                                </children>
+                                            </VBox>
+                                        </children>
+                                        <VBox.margin>
+                                            <Insets top="-25.0" />
+                                        </VBox.margin>
+                                    </HBox>
+                                    <Pane fx:id="riskbar" maxHeight="25.0" maxWidth="320.0" minHeight="25.0" minWidth="320.0" prefHeight="25.0" prefWidth="315.0" />
+                                </children>
+                            </VBox>
+                        </children>
+                    </HBox>
+                </children>
+            </Group>
+            <Label fx:id="surfacinglabel" layoutX="480.0" layoutY="33.0" maxWidth="178.0" prefHeight="28.0" prefWidth="100.0" text="Surfacing: " textFill="#fafafa">
+                <font>
+                    <Font name="Lucida Sans Regular" size="18.0" />
+                </font>
+            </Label>
+            <Pane id="canvas" fx:id="canvas" layoutX="15.0" layoutY="46.0" prefHeight="550.0" prefWidth="550.0" />
+        </children>
+    </AnchorPane>
+    
+</Pane>

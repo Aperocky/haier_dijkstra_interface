@@ -1,0 +1,55 @@
+
+CREATE TABLE User (
+    uid INTEGER NOT NULL,
+    condition_id INTEGER NOT NULL CHECK ( condition_id > 0 && condition_id < 5)
+);
+
+CREATE TABLE Game (
+    gid INTEGER NOT NULL PRIMARY KEY,
+    uid INTEGER REFERENCES User(uid),
+    map_id INTEGER NOT NULL,
+    result VARCHAR(10) CHECK ( result = 'success' OR result = 'failure'),
+    score INTEGER,
+    time DATETIME(6) DEFAULT CURRENT_TIMESTAMP(6)
+);
+
+CREATE TABLE Turn (
+    tid INTEGER NOT NULL PRIMARY KEY,
+    gid INTEGER REFERENCES Game(gid),
+    uid INTEGER REFERENCES User(uid),
+    time DATETIME(6) DEFAULT CURRENT_TIMESTAMP(6)
+);
+
+CREATE TABLE Turn_Eval (
+    tid INTEGER NOT NULL REFERENCES Turn(tid),
+    risk_eval CHAR(30) NOT NULL CHECK (risk_eval = 'high' OR risk_eval = 'medium' OR risk_eval = 'low'),
+    pos_x INTEGER NOT NULL,
+    pos_y INTEGER NOT NULL,
+    time DATETIME(6) DEFAULT CURRENT_TIMESTAMP(6)
+);
+
+CREATE TABLE Turn_Control (
+    tid INTEGER NOT NULL REFERENCES Turn(tid),
+    risk_choice CHAR(30) NOT NULL CHECK (risk_choice = 'high' OR risk_choice = 'medium' OR risk_choice = 'low'),
+    step_choice CHAR(30) NOT NULL CHECK (step = 'big' OR step = 'med' OR step = 'small'),
+    pos_x INTEGER NOT NULL,
+    pos_y INTEGER NOT NULL,
+    atmp_risk_remain DOUBLE NOT NULL,
+    curr_risk_remain DOUBLE NOT NULL,
+    surface_remain INTEGER NOT NULL,
+    same_path BOOLEAN,
+    time DATETIME(6) DEFAULT CURRENT_TIMESTAMP(6)
+);
+
+CREATE TABLE Turn_Confidence (
+    tid INTEGER NOT NULL REFERENCES Turn(tid),
+    confidence INTEGER CHECK (confidence >= 0 AND confidence <= 5),
+    deviate INTEGER,
+    time DATETIME(6) DEFAULT CURRENT_TIMESTAMP(6)
+);
+
+CREATE TABLE Turn_Expectation (
+    tid INTEGER NOT NULL REFERENCES Turn(tid),
+    expectation INTEGER CHECK (expectation >= 0 AND expectation <= 5),
+    time DATETIME(6) DEFAULT CURRENT_TIMESTAMP(6)
+);

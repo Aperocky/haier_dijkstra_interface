@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="AnchorBG" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="riskawarenesssimulation.Controller.EvaluationController">
+   <children>
+      <Group fx:id="AssessGroup" layoutX="120.0" layoutY="50.0">
+         <children>
+            <Group layoutX="20.0" layoutY="-50.0">
+               <children>
+                  <Label layoutX="-20.0" layoutY="50.0" text="How confident do you feel about your planning?" textFill="#fafafa">
+                     <font>
+                        <Font name="Lucida Sans Regular" size="28.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="-20.0" layoutY="130.0" text="Not Confident" textFill="#fafafa">
+                     <font>
+                        <Font name="Lucida Sans Regular" size="24.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="150.0" layoutY="130.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <JFXRadioButton fx:id="confidence1" text=" " textFill="#fafafa">
+                           <font>
+                              <Font name="Lucida Sans Regular" size="24.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="confidence" />
+                           </toggleGroup>
+                        </JFXRadioButton>
+                        <JFXRadioButton fx:id="confidence2" contentDisplay="TOP" text=" " textFill="#fafafa" toggleGroup="$confidence">
+                           <font>
+                              <Font name="Lucida Sans Regular" size="24.0" />
+                           </font>
+                        </JFXRadioButton>
+                        <JFXRadioButton fx:id="confidence3" text=" " textFill="#fafafa" toggleGroup="$confidence">
+                           <font>
+                              <Font name="Lucida Sans Regular" size="24.0" />
+                           </font>
+                        </JFXRadioButton>
+                        <JFXRadioButton fx:id="confidence4" text=" " textFill="#fafafa" toggleGroup="$confidence">
+                           <font>
+                              <Font name="Lucida Sans Regular" size="24.0" />
+                           </font>
+                        </JFXRadioButton>
+                        <JFXRadioButton fx:id="confidence5" text=" " textFill="#fafafa" toggleGroup="$confidence">
+                           <font>
+                              <Font name="Lucida Sans Regular" size="24.0" />
+                           </font>
+                        </JFXRadioButton>
+                     </children>
+                  </HBox>
+                  <Label layoutX="460.0" layoutY="130.0" text="Really Confident" textFill="#fafafa">
+                     <font>
+                        <Font name="Lucida Sans Regular" size="24.0" />
+                     </font>
+                  </Label>
+               </children></Group>
+            <Group layoutX="35.0" layoutY="50.0">
+               <children>
+                  <Label layoutX="20.0" layoutY="140.0" prefHeight="150.0" prefWidth="550.0" text="How much do you trust that the autonomous planner generates the best path solution?" textAlignment="CENTER" textFill="#fafafa" wrapText="true">
+                     <font>
+                        <Font name="Lucida Sans Regular" size="28.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="450.0" layoutY="300.0" text="Completely trust" textFill="#fafafa">
+                     <font>
+                        <Font name="Lucida Sans Regular" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutY="300.0" text="Not trust" textFill="#fafafa">
+                     <font>
+                        <Font name="Lucida Sans Regular" size="24.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="135.0" layoutY="300.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <JFXRadioButton fx:id="trust1" text=" " textFill="#fafafa">
+                           <font>
+                              <Font name="Lucida Sans Regular" size="24.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="trust" />
+                           </toggleGroup>
+                        </JFXRadioButton>
+                        <JFXRadioButton fx:id="trust2" contentDisplay="TOP" text=" " textFill="#fafafa" toggleGroup="$trust">
+                           <font>
+                              <Font name="Lucida Sans Regular" size="24.0" />
+                           </font>
+                        </JFXRadioButton>
+                        <JFXRadioButton fx:id="trust3" text=" " textFill="#fafafa" toggleGroup="$trust">
+                           <font>
+                              <Font name="Lucida Sans Regular" size="24.0" />
+                           </font>
+                        </JFXRadioButton>
+                        <JFXRadioButton fx:id="trust4" text=" " textFill="#fafafa" toggleGroup="$trust">
+                           <font>
+                              <Font name="Lucida Sans Regular" size="24.0" />
+                           </font>
+                        </JFXRadioButton>
+                        <JFXRadioButton fx:id="trust5" text=" " textFill="#fafafa" toggleGroup="$trust">
+                           <font>
+                              <Font name="Lucida Sans Regular" size="24.0" />
+                           </font>
+                        </JFXRadioButton>
+                     </children>
+                  </HBox>
+               </children></Group>
+            <JFXButton fx:id="submitBtn" layoutX="600.0" layoutY="450.0" style="-fx-background-color: #ff5400;" text="Submit" textFill="#fafafa">
+               <font>
+                  <Font name="Lucida Sans Regular" size="24.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Group>
+   </children>
+</AnchorPane>
