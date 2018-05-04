@@ -30,7 +30,6 @@ public class StepPlanner {
 
     public int getOptimalStep(int minDist, double riskbudget, int surfacebgt, int[] steps, double[] risks) {
         for (int i = 0; i < values.length; i++) {
-
             values[i] = (double) steps[i] / minDist;
             // Sanity Check
             if (riskbudget <= 0) {

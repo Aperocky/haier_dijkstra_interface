@@ -7,9 +7,9 @@ whether it is preferrable to rely on a set of instructions previously set by hum
 algorithm to decide next step of action.  
 
 ## User Interface
-<img src="https://github.com/YuansongFeng/risk_awareness_simulation_javafx/blob/master/screenshots/control.png" width="400">
-<img src="https://github.com/YuansongFeng/risk_awareness_simulation_javafx/blob/master/screenshots/eval.png" width="400">
-<img src="https://github.com/YuansongFeng/risk_awareness_simulation_javafx/blob/master/screenshots/feedback.png" width="400">
+<img src="https://github.com/YuansongFeng/haier_dijkstra_interface/blob/master/screenshots/control.png" width="400">
+<img src="https://github.com/YuansongFeng/haier_dijkstra_interface/blob/master/screenshots/eval.png" width="400">
+<img src="https://github.com/YuansongFeng/haier_dijkstra_interface/blob/master/screenshots/feedback.png" width="400">
       
 ## Features
 + Consecutive path planning based on Dijkstra in the maze of dangerous blocks
