@@ -154,7 +154,7 @@ public class SuccessController implements Initializable {
                 ex.printStackTrace();
             }
         }
-        ScoreLabel.setText("You scored " + Context.getInstance().getScoreBuilder().build().getScore());
+        ScoreLabel.setText("");
         Context.getInstance().getScoreBuilder().clear();
         BackgroundImage myBG = new BackgroundImage(new Image(DEFAULT_IMAGE_PACKAGE
                 .concat(BG_IMG_S)),
