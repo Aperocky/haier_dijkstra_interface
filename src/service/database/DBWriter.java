@@ -29,7 +29,8 @@ public class DBWriter {
 
     private final DBService mService;
     private final Connection mConnection;
-    public static final String log_file = "/Users/aperocky/workspace/Labwork/haier_dijkstra_interface/logs.txt";
+    public static final String log_file_path = "/Users/aperocky/workspace/Labwork/haier_dijkstra_interface/";
+    public String log_file;
 
     public DBWriter(DBService service) {
         mService = service;
@@ -53,9 +54,14 @@ public class DBWriter {
         }
     }
 
+    public void setLog_file(int uid){
+        String filename = "user" + Integer.toString(uid) + ".txt";
+        this.log_file = log_file_path + filename;
+    }
+
     public void writeRecord(DBModel model){
         try {
-            BufferedWriter output = new BufferedWriter(new FileWriter(log_file, true));
+            BufferedWriter output = new BufferedWriter(new FileWriter(this.log_file, true));
             System.out.println("Executing writing session " + model.getName());
             output.write("NAME : ");
             output.write(model.getName());

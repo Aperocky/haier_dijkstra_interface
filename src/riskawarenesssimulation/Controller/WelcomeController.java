@@ -95,6 +95,7 @@ public class WelcomeController implements Initializable {
 //            try {
                 mDBWriter = Context.getInstance().getDBWriter();
 //                mDBWriter.writeModel(mUser);
+                mDBWriter.setLog_file(mUserId);
                 mDBWriter.writeRecord(mUser);
 //            } catch (DBException ex) {
 //                ex.printStackTrace();
