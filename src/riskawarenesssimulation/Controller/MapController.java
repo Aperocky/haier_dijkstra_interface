@@ -271,22 +271,24 @@ public class MapController implements Initializable, GameConstants {
      * @param riskeval
      */
     private void writeEvalChoice(String riskeval) {
-        if (!Context.getInstance().isDBEnabled()) {
-            return;
-        }
-        try {
+//        if (!Context.getInstance().isDBEnabled()) {
+//            return;
+//        }
+//        try {
             Integer tid = Context.getInstance().getTurn().incrementTid();
 
-            mDBWriter.writeModel(Context.getInstance().getTurn());
+//            mDBWriter.writeModel(Context.getInstance().getTurn());
+            mDBWriter.writeRecord(Context.getInstance().getTurn());
 
             Turn_Eval eval = new Turn_Eval(tid);
             eval.put(Turn_Eval.RISKEVAL, riskeval);
             eval.put(Turn_Eval.POSX, mCurrentStartNode.getColumn());
             eval.put(Turn_Eval.POSY, mCurrentStartNode.getRow());
-            mDBWriter.writeModel(eval);
-        } catch (DBException e) {
-            e.printStackTrace();
-        }
+//            mDBWriter.writeModel(eval);
+            mDBWriter.writeRecord(eval);
+//        } catch (DBException e) {
+//            e.printStackTrace();
+//        }
 
     }
 
@@ -411,13 +413,14 @@ public class MapController implements Initializable, GameConstants {
      * @param step
      */
     private void writeControlChoice(String risk, String step) {
-        if (!Context.getInstance().isDBEnabled()) {
-            return;
-        }
-        try {
+//        if (!Context.getInstance().isDBEnabled()) {
+//            return;
+//        }
+//        try {
             Integer tid = Context.getInstance().getTurn().incrementTid();
 
-            mDBWriter.writeModel(Context.getInstance().getTurn());
+//            mDBWriter.writeModel(Context.getInstance().getTurn());
+            mDBWriter.writeRecord(Context.getInstance().getTurn());
 
             Boolean samepath = checkSamePath(mPrevPlanEdges, mCurrPlanEdges);
             Turn_Control control = new Turn_Control(tid);
@@ -429,10 +432,11 @@ public class MapController implements Initializable, GameConstants {
             control.put(Turn_Control.CURR_RISK_REN, (Double) (RISK_BUDGET - mRiskConsumption));
             control.put(Turn_Control.SURFACE_RMN, mSurfacing);
             control.put(Turn_Control.SAME_PATH, samepath);
-            mDBWriter.writeModel(control);
-        } catch (DBException e) {
-            HaierAlert.getAlert(HaierAlert.DATABASE_ERROR).showAndWait();
-        }
+//            mDBWriter.writeModel(control);
+            mDBWriter.writeRecord(control);
+//        } catch (DBException e) {
+//            HaierAlert.getAlert(HaierAlert.DATABASE_ERROR).showAndWait();
+//        }
     }
 
     @FXML
@@ -601,7 +605,7 @@ public class MapController implements Initializable, GameConstants {
      * different colors; Indicate the use of risk budget in the budget bar; Show
      * SurfacingOut warning if instructed
      *
-     * @throws HaierException
+     *
      */
     private void showAttemptedStepPath() {
         // Clear all previous attempted paths

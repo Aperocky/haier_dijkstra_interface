@@ -70,9 +70,11 @@ public class SuccessController implements Initializable {
         Context.getInstance().setGame(mLastGame);
 
         // Database Storage
-        if (Context.getInstance().isDBEnabled()) {
-            mDBWriter.writeModel(mLastGame);
-        }
+        mDBWriter.writeRecord(mLastGame);
+//        if (Context.getInstance().isDBEnabled()) {
+//            mDBWriter.writeModel(mLastGame);
+//            mDBWriter.writeRecord(mLastGame);
+//        }
         
     }
     

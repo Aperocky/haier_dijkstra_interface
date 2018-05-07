@@ -8,9 +8,15 @@ package service.database;
 import model.database.DBModel;
 import model.database.Game;
 import exception.DBException;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.StringJoiner;
 
 /**
@@ -23,6 +29,7 @@ public class DBWriter {
 
     private final DBService mService;
     private final Connection mConnection;
+    public static final String log_file = "/Users/aperocky/workspace/Labwork/haier_dijkstra_interface/logs.txt";
 
     public DBWriter(DBService service) {
         mService = service;
@@ -44,7 +51,25 @@ public class DBWriter {
         } catch (SQLException ex) {
             throw new DBException(ex.getMessage());
         }
+    }
 
+    public void writeRecord(DBModel model){
+        try {
+            BufferedWriter output = new BufferedWriter(new FileWriter(log_file, true));
+            System.out.println("Executing writing session " + model.getName());
+            output.write("NAME : ");
+            output.write(model.getName());
+            output.newLine();
+            for (HashMap.Entry<String, Object> entry : model.entrySet()) {
+                output.write(entry.getKey());
+                output.write(" : ");
+                output.write(entry.getValue().toString());
+                output.newLine();
+            }
+            output.close();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     private String buildInsert(DBModel model) {

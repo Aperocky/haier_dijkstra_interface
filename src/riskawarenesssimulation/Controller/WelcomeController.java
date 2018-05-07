@@ -91,14 +91,15 @@ public class WelcomeController implements Initializable {
         Context.getInstance().setUser(mUser);
         Context.getInstance().setGame(mGame);
         // Insert new user in User table
-        if (Context.getInstance().isDBEnabled()) {
-            try {
+//        if (Context.getInstance().isDBEnabled()) {
+//            try {
                 mDBWriter = Context.getInstance().getDBWriter();
-                mDBWriter.writeModel(mUser);
-            } catch (DBException ex) {
-                ex.printStackTrace();
-            }
-        }
+//                mDBWriter.writeModel(mUser);
+                mDBWriter.writeRecord(mUser);
+//            } catch (DBException ex) {
+//                ex.printStackTrace();
+//            }
+//        }
 
         ((Stage) BeginBtn.getScene().getWindow()).close();
         mSceneService.showStage(MAP_CANVAS);

@@ -92,29 +92,33 @@ public class EvaluationController implements Initializable {
     }
 
     private void writeAssessment(Integer confid, Integer trust) {
-        if (!Context.getInstance().isDBEnabled()) {
-            return;
-        }
-        try {
+//        if (!Context.getInstance().isDBEnabled()) {
+//            return;
+//        }
+//        try {
             Integer tid = Context.getInstance().getTurn().incrementTid();
-
-            mDBWriter.writeModel(Context.getInstance().getTurn());
+//
+//            mDBWriter.writeModel(Context.getInstance().getTurn());
+            mDBWriter.writeRecord(Context.getInstance().getTurn());
             
             Integer dev = (Integer) Context.getInstance().getConfidence().get(Turn_Confidence.DEVIATE);
             Turn_Confidence confidence = new Turn_Confidence(tid);
             confidence.put(Turn_Confidence.DEVIATE, dev);
             confidence.put(Turn_Confidence.CONFIDENCE, confid);
-            mDBWriter.writeModel(confidence);
+//            mDBWriter.writeModel(confidence);
+            mDBWriter.writeRecord(confidence);
             
             Integer tid2 = Context.getInstance().getTurn().incrementTid();
-            mDBWriter.writeModel(Context.getInstance().getTurn());
+//            mDBWriter.writeModel(Context.getInstance().getTurn());
+            mDBWriter.writeRecord(Context.getInstance().getTurn());
             Turn_Expectation expect = new Turn_Expectation(tid2);
             expect.put(Turn_Expectation.TID, tid2);
             expect.put(Turn_Expectation.EXPECT, trust);
-            mDBWriter.writeModel(expect);
-        } catch (DBException e) {
-            e.printStackTrace();
-        }
+//            mDBWriter.writeModel(expect);
+            mDBWriter.writeRecord(expect);
+//        } catch (DBException e) {
+//            e.printStackTrace();
+//        }
     }
 
     private void closeCurrentWindow() {
